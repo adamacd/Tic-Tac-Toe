@@ -4,7 +4,12 @@ Play Tic-Tac-Toe against the computer on the command line (on windows).
 
 ## Executing the program
 
-Click Tic-Tac-Toe to start the game.
+Navigate to where the program is installed, then run the Tic-Tac-Toe.exe file from the command prompt, or powershell.
+
+
+## Visual
+
+![]PowershellTTT.jpg
 
 ## Author
 
