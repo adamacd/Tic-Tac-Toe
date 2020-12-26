@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+/* Function: hasWinner 
+ * Purpose: Checks if a Tic-Tac-Toe win condition has been met.
+ * Input: The Tic-Tac-Toe board (an array of chars).
+ * Output: 1 if win condition is met.
+ */
+
 int hasWinner(char *board){
     
     if ( (board[0] == 'X' || board[0] == 'O') && board[0] == board[1] && board[1] == board[2])
@@ -20,9 +26,13 @@ int hasWinner(char *board){
         return 1;
     else if ( (board[2] == 'X' || board[2] == 'O') && board[2] == board[4] && board[4] == board[6])
         return 1;
-
 }
 
+/* Function: updateBoard
+ * Purpose: Print the updated Tic-Tac-Toe board.
+ * Input: board (array of chars)
+ * Output: board (array of chars) after players place their marks on their turns.
+*/
 
 void updateBoard(char *board){
 
@@ -36,32 +46,62 @@ void updateBoard(char *board){
 
 }
 
+/* Function: VerifyRow
+ * Purpose: Check if player entered a valid row.
+ * Input: row
+ * Output: Error if invalid player input, else nothing.
+ */
+
 void VerifyRow(int row){
     if( row < 1 || row > 3 ) {
         fprintf(stderr, "Invalid input. Game over!");
         exit(1);
     }
 }
+
+/* Function: VerifySpace
+ * Purpose: Check if player entered a valid space
+ * Input: space
+ * Output: Error if invalid player input, else nothing.
+ */
+ 
 void VerifySpace(int space){
     if( space < 1 || space > 3 ) {
         fprintf(stderr, "Invalid input. Game over!");
         exit(1);
     }  
 }
-
+/* Function: verifyUnoccupiedSpace1
+ * Purpose: Ensure the player doesn't choose a space occupied by a marker (X or O) on row 1
+ * Input: board (array of chars), and space
+ * Output: Error if invalid player input, else nothing.
+ */
+ 
 void verifyUnoccupiedSpace1(char *board, int space){
     if( board[space-1] != '.' ){
         fprintf(stderr, "That space is already occupied by a marker. Game over!");
         exit(1);
     }
 }
+
+/* Function: verifyUnoccupiedSpace2
+ * Purpose: Ensure the player doesn't choose a space occupied by a marker (X or O) on row 2
+ * Input: board (array of chars), and space
+ * Output: Error if invalid player input, else nothing.
+ */
+ 
 void verifyUnoccupiedSpace2( char *board, int space){
     if( board[space+2] != '.' ){
         fprintf(stderr, "That space is already occupied by a marker. Game over!");
         exit(1);
     }
 }
-
+/* Function: verifyUnoccupiedSpace3
+ * Purpose: Ensure the player doesn't choose a space occupied by a marker (X or O) on row 3
+ * Input: board (array of chars), and space
+ * Output: Error if invalid player input, else nothing.
+ */
+ 
 void verifyUnoccupiedSpace3( char *board, int space){
     if( board[space+5] != '.' ){
         fprintf(stderr, "That space is already occupied by a marker. Game over!");
@@ -69,6 +109,12 @@ void verifyUnoccupiedSpace3( char *board, int space){
     }
 }
 
+/* Function: setFirstTurn
+ * Purpose: Gives the first move to the player, or computer.
+ * Input: marker, playerturn, first
+ * Output: Error if invalid player input, else nonthing.
+ */
+ 
 void setFirstTurn( char *mark, int *turn, int first ){
     if( first == 1 ){
         *turn = 1;
@@ -83,7 +129,12 @@ void setFirstTurn( char *mark, int *turn, int first ){
         exit(1);
     }
 }
-
+/* Function: computerMove
+ * Purpose: Make the computer put a marker on a random, unoccupied space.
+ * Input: board (array of chars)
+ * Output: Prints a stylish message to stdout.
+ */
+ 
 void computerMove( char *board ){
     srand(time(NULL));
     int r = rand() % 9;
@@ -91,14 +142,17 @@ void computerMove( char *board ){
         r = rand() % 9;
     }
     board[r] = 'O';
-   // marker = 'X';   //switch to player's marker
-   // playerTurn = 1; //switch to player's turn 
-    
+
     printf("*********************   \n"
            "***Computer's Turn***  O\n"
            "*********************   \n"); 
 }
-
+/* Function: victoryMessage
+ * Purpose: Announce the winner to stdout.
+ * Input: playerTurn
+ * Output: Prints a stylish message to stdout.
+ */
+ 
 void victoryMessage(int *turn){
     if( *turn == 2 ){
         printf(
@@ -118,6 +172,13 @@ void victoryMessage(int *turn){
                "       ****        \n");
     }
 }
+
+/* Function: checkDraw
+ * Purpose: Check if the game ends in a draw.
+ * Input: turnCounter
+ * output: print no winner to stdout if it's a draw, else do nothing.
+ */
+ 
 void checkDraw(int turncount){
     if(turncount == 9){
         printf("####################################\n"
@@ -127,6 +188,12 @@ void checkDraw(int turncount){
     }
 }
 
+/* Function printInstructions
+ * Purpose: Inform the player about how to play Tic-Tac-Toe
+ * Input: None
+ * Output: None
+ */
+ 
 void printInstructions(){
     printf(
            "\n* *  Tic-Tac-Toe  *  *\n\n"

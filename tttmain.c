@@ -4,15 +4,15 @@
 #include "tttheader.h"
 
 int main() {
-    char board[9] = { '.', '.', '.',
+    char board[9] = { '.', '.', '.',  
                       '.', '.', '.',
-                      '.', '.', '.' };
-    int space;
-    int row;
-    int first;
-    int playerTurn;
-    int turnCounter = 0;
-    char marker;
+                      '.', '.', '.' };  // Chars to be put on the board.
+    int space;           // A space on the board
+    int row;             // A row on the board
+    int first;           // Determines playerTurn and marker initially.
+    int playerTurn;      // Determines if it's the player's turn or not.
+    int turnCounter = 0; // Counts the number of turns that occur.
+    char marker;         // Gives 'X' to the player, 'O' to the computer.
     
     printInstructions();
     updateBoard(board);
