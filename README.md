@@ -9,7 +9,7 @@ Navigate to where the program is installed, then run the Tic-Tac-Toe.exe file fr
 
 ## Visual
 
-![]PowershellTTT.jpg
+![](PowershellTTT.jpg)
 
 ## Author
 
