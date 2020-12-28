@@ -200,6 +200,6 @@ void printInstructions(){
            "Put your mark (X) on 3 spaces horizontally, vertically, or diagonally, to win.\n"
            "The board has 3 rows, each with 3 spaces:\n"
            "Rows 1, 2, 3 (Top, Middle, Bottom)\n"
-           "Spaces 1, 2, 3 (Left, Midde, Right)\n\n");
+           "Spaces 1, 2, 3 (Left, Middle, Right)\n\n");
             
 }
